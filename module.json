@@ -30,7 +30,7 @@
       "path": "packs/rescure-at-rivenroar-compendium-pack",
       "type": "Adventure",
       "ownership": {
-        "PLAYER": "OBSERVER",
+        "PLAYER": "NONE",
         "ASSISTANT": "OWNER"
       },
       "system": "dnd4e"
