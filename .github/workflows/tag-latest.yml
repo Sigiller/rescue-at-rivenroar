@@ -11,7 +11,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # нужно, чтобы форсить теги
+          fetch-depth: 0
 
       - name: Set Git user for tagging
         run: |
@@ -21,6 +21,7 @@ jobs:
       - name: Create or update 'latest' tag
         run: |
           git tag -f latest ${{ github.event.release.tag_name }}
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git push origin --force --tags
 
       - name: Upload module.json to release
