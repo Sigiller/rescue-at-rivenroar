@@ -1,4 +1,4 @@
-name: Tag latest and upload module.json
+name: Tag latest and upload module assets
 
 on:
   release:
@@ -24,9 +24,16 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git push origin --force --tags
 
-      - name: Upload module.json to release
+      - name: Create module.zip (analog GitHub source archive)
+        run: |
+          mkdir temp-release
+          git archive --format=zip --output=temp-release/module.zip HEAD
+
+      - name: Upload module.json and module.zip to release
         uses: softprops/action-gh-release@v2
         with:
-          files: module.json
+          files: |
+            module.json
+            temp-release/module.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -3,7 +3,7 @@
   "title": "Rescue at Rivenroar",
   "description": "Rescue at Rivenroar adventure for DND4E",
   "manifest": "https://github.com/sigiller/rescue-at-rivenroar/releases/latest/download/module.json",
-  "download": "https://github.com/sigiller/rescue-at-rivenroar/releases/download/0.1.0/module.zip",
+  "download": "https://github.com/sigiller/rescue-at-rivenroar/releases/latest/download/module.zip",
   "version": "0.1.0",
   "compatibility": {
     "minimum": "12",
