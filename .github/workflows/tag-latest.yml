@@ -1,21 +1,31 @@
-
-name: Update latest tag
+name: Tag latest and upload module.json
 
 on:
   release:
     types: [published]
 
 jobs:
-  tag-latest:
+  update-latest-and-upload:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # нужно, чтобы форсить теги
 
-      - name: Set latest tag
+      - name: Set Git user for tagging
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git fetch --prune --unshallow
+
+      - name: Create or update 'latest' tag
+        run: |
           git tag -f latest ${{ github.event.release.tag_name }}
           git push origin --force --tags
+
+      - name: Upload module.json to release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: module.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
