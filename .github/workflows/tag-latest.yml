@@ -1,0 +1,21 @@
+
+name: Update latest tag
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  tag-latest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set latest tag
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch --prune --unshallow
+          git tag -f latest ${{ github.event.release.tag_name }}
+          git push origin --force --tags
