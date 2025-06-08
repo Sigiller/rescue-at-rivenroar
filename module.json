@@ -1,0 +1,39 @@
+{
+  "id": "rescue-at-rivenroar",
+  "title": "Rescue at Rivenroar",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "dnd4e",
+        "type": "system",
+        "compatibility": {}
+      }
+    ]
+  },
+  "authors": [
+    {
+      "name": "Sigiller",
+      "email": "sigiller@gmail.com",
+      "discord": "Sigiller",
+      "flags": {}
+    }
+  ],
+  "packs": [
+    {
+      "name": "rescure-at-rivenroar-compendium-pack",
+      "label": "Rescure at Rivenroar Compendium Pack",
+      "path": "packs/rescure-at-rivenroar-compendium-pack",
+      "type": "Adventure",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "system": "dnd4e"
+    }
+  ]
+}
